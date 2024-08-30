@@ -139,26 +139,26 @@ document.querySelector('.pay').addEventListener('click', (e) => {
 
 /* Standout suggestions */
 /* Begin remove all items from cart */
-// function dropCart(){
-//     let shoppingCart = document.querySelector('.empty-btn');
-//     let div = document.createElement("button");
-//     div.classList.add("empty");
-//     div.innerHTML =`Empty Cart`;
-//     shoppingCart.append(div);
-// }
-// dropCart();
+//function dropCart(){
+//    let shoppingCart = document.querySelector('.empty-btn');
+//    let div = document.createElement("button");
+//    div.classList.add("empty");
+//    div.innerHTML =`Empty Cart`;
+//    shoppingCart.append(div);
+//}
+//dropCart();
 
-// document.querySelector('.empty-btn').addEventListener('click', (e) => {
-//     if (e.target.classList.contains('empty')){
+//document.querySelector('.empty-btn').addEventListener('click', (e) => {
+//    if (e.target.classList.contains('empty')){
 //         emptyCart();
 //         drawCart();
 //         drawCheckout();
 //     }
-// })
+//})
 /* End all items from cart */
 
 /* Begin currency converter */
-// function currencyBuilder(){
+//function currencyBuilder(){
 //     let currencyPicker = document.querySelector('.currency-selector');
 //     let select = document.createElement("select");
 //     select.classList.add("currency-select");
@@ -166,10 +166,10 @@ document.querySelector('.pay').addEventListener('click', (e) => {
 //                         <option value="EUR">EUR</option>
 //                         <option value="YEN">YEN</option>`;
 //     currencyPicker.append(select);
-// }
-// currencyBuilder();
+//}
+//currencyBuilder();
 
-// document.querySelector('.currency-select').addEventListener('change', function handleChange(event) {
+//document.querySelector('.currency-select').addEventListener('change', function handleChange(event) {
 //     switch(event.target.value){
 //         case 'EUR':
 //             currencySymbol = '€';
@@ -180,12 +180,12 @@ document.querySelector('.pay').addEventListener('click', (e) => {
 //         default:
 //             currencySymbol = '$';
 //             break;
-//      }
+//     }
 
 //     currency(event.target.value);
 //     drawProducts();
 //     drawCart();
 //     drawCheckout();
-// });
+//});
 /* End currency converter */
 /* End standout suggestions */
