@@ -54,15 +54,24 @@ const cart = [];
 */
 
 /**
+ * @param {string} productId
+ * @param {array} productList
+ * @returns {object} - The product object from the productList array.
+ */
+function getProductByIdFromList(productId, productList) {
+  return productList.find((product) => product.productId === productId);
+}
+
+/**
 * @description Adds a product to the cart and increments the quantity.
 * @param {string} productId - The productId from the product object.
 */
 function addProductToCart(productId) {
-  let product = products.find(item => item.productId === productId );
+  let product = getProductByIdFromList(productId, products);
 
-  if (product != undefined) {
+  if (product !== undefined) {
     // Check if product is already in cart.
-    let inCart = cart.find(item => item.productId === productId);
+    let inCart = getProductByIdFromList(productId, cart);
 
     // If product is not in cart, add it.
     if (inCart === undefined) {
@@ -175,10 +184,8 @@ function cartTotal() {
 */
 function emptyCart() {
   cart.forEach(function(item) {
-    item.quantity = 0;
+    removeProductFromCart(item.productId);
   });
-
-  cart = [];
 }
 
 /* Create a function named pay that takes in an amount as an argument
@@ -192,14 +199,21 @@ function emptyCart() {
 let totalPaid = 0;
 
 /**
-* @description Calculates the amount of change to give back to the customer.
+* @description Calculates the amount of change to give back to the customer. Resets totalPaid and empties the cart if the balance is greater than or equal to 0.
 * @param {number} amount - The amount paid by the customer.
 * @returns {number} - The amount of change to give back to the customer.
 */
 function pay(amount) {
   totalPaid += amount;
 
-  return (cartTotal() - totalPaid);
+  let balance = totalPaid - cartTotal();
+
+  if (balance >= 0) {
+    totalPaid = 0;
+    emptyCart();
+  }
+
+  return balance;
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
